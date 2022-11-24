@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rRu6fsezCnRPkKDpe94l/EBmmpc14w7rXYQ79g0ssd2fFeOHWuIlbOmZvZZ+KidOi9yk2dNBsU4318uIv4ORuw==",
+  "dgSpecHash": "NfXTOZckIWACRZqFBS8WyZeBrgSrrwGsoUFhfRbosJM4h6Olrz0Ggc8kqDB9+Y1wjqcyBUCaO+n0M8BLyes+8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\source\\repos\\LeWord\\LeWord\\LeWord.csproj",
+  "projectFilePath": "C:\\Users\\PC\\Desktop\\LEWORD\\API\\LeWord\\LeWord.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",

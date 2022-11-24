@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\source\\repos\\LeWord\\LeWord\\LeWord.csproj": {}
+    "C:\\Users\\PC\\Desktop\\LEWORD\\API\\LeWord\\LeWord.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\source\\repos\\LeWord\\LeWord\\LeWord.csproj": {
+    "C:\\Users\\PC\\Desktop\\LEWORD\\API\\LeWord\\LeWord.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\source\\repos\\LeWord\\LeWord\\LeWord.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\LEWORD\\API\\LeWord\\LeWord.csproj",
         "projectName": "LeWord",
-        "projectPath": "C:\\Users\\PC\\source\\repos\\LeWord\\LeWord\\LeWord.csproj",
+        "projectPath": "C:\\Users\\PC\\Desktop\\LEWORD\\API\\LeWord\\LeWord.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\source\\repos\\LeWord\\LeWord\\obj\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\LEWORD\\API\\LeWord\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
