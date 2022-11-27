@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NfXTOZckIWACRZqFBS8WyZeBrgSrrwGsoUFhfRbosJM4h6Olrz0Ggc8kqDB9+Y1wjqcyBUCaO+n0M8BLyes+8Q==",
+  "dgSpecHash": "jyqOrMPb/Q3hlBVQxSWw9r9FuICceIVgqYjCB39ZDYA/R9YRYUHGOji0KFaOHMxxixW/kO+378c4iiMb3ArjXA==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\Desktop\\LEWORD\\API\\LeWord\\LeWord.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\PC\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.certificate\\6.0.11\\microsoft.aspnetcore.authentication.certificate.6.0.11.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.11\\microsoft.aspnetcore.authentication.jwtbearer.6.0.11.nupkg.sha512",

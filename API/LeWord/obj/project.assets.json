@@ -94,6 +94,21 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Abstractions.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.Certificate/6.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Memory": "6.0.1"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Certificate.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Certificate.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Authentication.Cookies/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -3768,6 +3783,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Abstractions.xml",
         "microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.authentication.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Certificate/6.0.11": {
+      "sha512": "C0NVE6MmvCjkEJLyeHlV8PRf6Dv1JL2uQIvnAE92cSpY8paEHfrtNdQShRglVd7pGYZaxse91Ph60yQG2gWzOw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.certificate/6.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.Certificate.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Authentication.Certificate.xml",
+        "microsoft.aspnetcore.authentication.certificate.6.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.certificate.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.Cookies/2.2.0": {
@@ -10988,6 +11018,7 @@
     "net6.0": [
       "AutoMapper >= 12.0.0",
       "BCrypt.Net-Next >= 4.0.3",
+      "Microsoft.AspNetCore.Authentication.Certificate >= 6.0.11",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.11",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.11",
@@ -11047,6 +11078,10 @@
           "BCrypt.Net-Next": {
             "target": "Package",
             "version": "[4.0.3, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Certificate": {
+            "target": "Package",
+            "version": "[6.0.11, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",

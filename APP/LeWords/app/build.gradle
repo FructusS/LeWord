@@ -21,10 +21,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "API_URL", "https://localhost:7201/api"
+            buildConfigField "String", "API_URL", "\"http://10.0.2.2:5000/api/\""
         }
         debug {
-            buildConfigField "String", "API_URL", "https://localhost:7201/api"
+            buildConfigField "String", "API_URL", "\"http://10.0.2.2:5000/api/\""
         }
     }
     compileOptions {
@@ -41,8 +41,17 @@ android {
 }
 
 dependencies {
-    //retrofit2
+    //lifecycle
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
 
+
+    //coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
+
+
+    //retrofit2
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit2Version"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2Version"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'

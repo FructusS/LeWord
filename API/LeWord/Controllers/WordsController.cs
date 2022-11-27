@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LeWord.Models;
+using System.Collections.ObjectModel;
+using LeWord.Entities;
 
 namespace LeWord.Controllers
 {
@@ -14,20 +16,20 @@ namespace LeWord.Controllers
     public class WordsController : ControllerBase
     {
         private readonly LeWordContext _context;
-        private static Random random;
+
 
         public WordsController(LeWordContext context)
         {
             _context = context;
-            random = new Random();  
+            
         }
 
         // GET: api/Words
         [HttpGet("{count}")]
-        public async Task<ActionResult<IEnumerable<Word>>> GetWords(int count)
+        public async Task<ActionResult<List<Word>>> GetWords(int count)
         {
           
-            return await _context.Words.Skip(random.Next(10, _context.Words.Count())).Take(count).ToListAsync();
+            return await _context.Words.Skip(Random.Shared.Next(10, _context.Words.Count())).Take(count).ToListAsync();
         }
 
         // GET: api/Words/5

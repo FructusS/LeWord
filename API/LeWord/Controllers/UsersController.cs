@@ -14,6 +14,11 @@ using System.Configuration;
 using System.Text;
 using System.Security.Claims;
 
+using LeWord.Entities;
+using LeWord.utils;
+using LeWord.Entities.Requests;
+using LeWord.Interfaces;
+
 namespace LeWord.Controllers
 {
 
@@ -22,13 +27,13 @@ namespace LeWord.Controllers
     public class UsersController : ControllerBase
     {
         private LeWordContext _context;
-        private readonly IConfiguration _config;
+        private readonly IUserService _userService;
 
 
-        public UsersController(LeWordContext context)
+        public UsersController(LeWordContext context,IUserService userService)
         {
             _context = context;
-
+            _userService = userService;
         }
 
         // GET: api/Users
@@ -89,72 +94,40 @@ namespace LeWord.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<ActionResult<User>> LoginUser([FromBody] LoginUser model)
+        public async Task<ActionResult> loginUser([FromBody] LoginRequest model)
         {
-            
-
-            var identity = GetIdentity(model);
-            if (identity == null)
+            if (string.IsNullOrEmpty(model.Username) || string.IsNullOrEmpty(model.Password))
             {
                 return BadRequest(new { errorText = "Invalid username or password." });
             }
-            // создаем JWT-токен
-            var jwt = new JwtSecurityToken(
-                    issuer: AuthOptions.ISSUER,
-                    audience: AuthOptions.AUDIENCE,
-       
-                    claims: identity.Claims,
-                    expires: DateTime.UtcNow.AddDays(30),
-                    signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
-            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-
-            var response = new
+            var loginresponse = await _userService.loginUser(model);
+          
+            if (loginresponse == null)
             {
-                access_token = encodedJwt,
-                username = model.Username
-            };
-        
-            return Ok(response);
+                return BadRequest(new { errorText = "Invalid username or password." });
+            }
+
+            return Ok(loginresponse);
         }
 
-        private ClaimsIdentity GetIdentity(LoginUser model)
-        {
-            var user = _context.Users.SingleOrDefault(x => x.Username == model.Username);
-
-            if (user == null || !BCrypt.Net.BCrypt.Verify(model.Password, user.Passwordhash))
-            {
-                return null;
-            }
-            else
-            {
-                var claims = new List<Claim> { new Claim(ClaimsIdentity.DefaultNameClaimType, model.Username) };
-                ClaimsIdentity claimsIdentity =
-                new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
-                    ClaimsIdentity.DefaultRoleClaimType);
-                return claimsIdentity;
-            }
-        }
+ 
 
         [HttpPost]
         [Route("registration")]
-        public async Task<ActionResult<User>> PostUser([FromBody]RegisterUser model)
+        public async Task<ActionResult> registrationUser([FromBody] RegistrationRequest model)
         {
-
-            if (_context.Users.Any(x => x.Username == model.Username))
+            if (string.IsNullOrEmpty(model.Username) || string.IsNullOrEmpty(model.Password) || string.IsNullOrEmpty(model.Email))
             {
-                return BadRequest("Username is exsist");
+                return BadRequest(new { errorText = "User is exist." });
             }
-            User user = new User(){
-                Firstname = model.Firstname,
-                Lastname = model.Lastname,
-                Username = model.Username,
-                Passwordhash = BCrypt.Net.BCrypt.HashPassword(model.Password)
-            };
-           
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            var registrationresponse = await _userService.registrationUser(model);
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            if (registrationresponse == null)
+            {
+                return BadRequest(new { errorText = "User is exist." });
+            }
+
+            return Ok("registration is succesful");
         }
 
         // DELETE: api/Users/5

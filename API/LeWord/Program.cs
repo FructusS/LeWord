@@ -1,5 +1,8 @@
-using LeWord;
+using LeWord.Interfaces;
 using LeWord.Models;
+using LeWord.Service;
+using LeWord.utils;
+using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.IdentityModel.Tokens;
@@ -14,27 +17,32 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LeWordContext>();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        // указывает, будет ли валидироваться издатель при валидации токена
-        ValidateIssuer = true,
-        // строка, представляющая издателя
-        ValidIssuer = AuthOptions.ISSUER,
-        // будет ли валидироваться потребитель токена
-        ValidateAudience = true,
-        // установка потребителя токена
-        ValidAudience = AuthOptions.AUDIENCE,
-        // будет ли валидироваться время существования
-        ValidateLifetime = true,
-        // установка ключа безопасности
-        IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
-        // валидация ключа безопасности
-        ValidateIssuerSigningKey = true
-    };
-});
-builder.Services.AddAuthorization();
+
+//сервис создаются единожды для каждого запроса.
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddAuthentication().AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                // указывает, будет ли валидироваться издатель при валидации токена
+                ValidateIssuer = true,
+                // строка, представляющая издателя
+                ValidIssuer = AuthOptions.ISSUER,
+                // будет ли валидироваться потребитель токена
+                ValidateAudience = true,
+                // установка потребителя токена
+                ValidAudience = AuthOptions.AUDIENCE,
+                // будет ли валидироваться время существования
+                ValidateLifetime = true,
+                // установка ключа безопасности
+                IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+                // валидация ключа безопасности
+                ValidateIssuerSigningKey = true
+            };
+        });
+
+
+
 
 var app = builder.Build();
 
@@ -45,7 +53,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+else
+{
+    // For mobile apps, allow http traffic.
+    app.UseHttpsRedirection();
+}
 app.UseRouting();
 
 app.UseAuthentication();

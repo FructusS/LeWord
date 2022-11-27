@@ -578,3 +578,4 @@ C:\Users\PC\Desktop\LEWORD\API\LeWord\obj\Debug\net6.0\refint\LeWord.dll
 C:\Users\PC\Desktop\LEWORD\API\LeWord\obj\Debug\net6.0\LeWord.pdb
 C:\Users\PC\Desktop\LEWORD\API\LeWord\obj\Debug\net6.0\LeWord.genruntimeconfig.cache
 C:\Users\PC\Desktop\LEWORD\API\LeWord\obj\Debug\net6.0\ref\LeWord.dll
+C:\Users\PC\Desktop\LEWORD\API\LeWord\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Certificate.dll
