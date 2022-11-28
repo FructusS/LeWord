@@ -1,18 +1,11 @@
 package com.example.lewords.ui.login
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import com.example.lewords.R
 import com.example.lewords.databinding.ActivityLoginBinding
-import com.example.lewords.model.user.registration.RegistrationRequest
-import com.example.lewords.model.word.Word
-import com.example.lewords.network.interfaces.IUserApi
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var loginViewModel : LoginViewModel
@@ -32,6 +25,11 @@ class LoginActivity : AppCompatActivity() {
             loginViewModel.loginUser(loginEditText,passwordEditText)
 
         }
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        var editor = sharedPreference.edit()
+        editor.putString("username","Anupam")
+        editor.putLong("l",100L)
+        editor.commit()
 
     }
 }

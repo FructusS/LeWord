@@ -1,26 +1,22 @@
 package com.example.lewords.ui.login
 
-import android.util.Log
+import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.lewords.model.user.login.LoginRequest
 import com.example.lewords.model.user.login.LoginResponse
-import com.example.lewords.model.user.registration.RegistrationRequest
-import com.example.lewords.model.user.registration.RegistrationResponse
 import com.example.lewords.network.UserRepository
 import com.example.lewords.utils.Resource
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.lang.Exception
 
-class LoginViewModel() : ViewModel(){
+
+class LoginViewModel(application: Application): AndroidViewModel(application){
+    var sharedpreferences: SharedPreferences =
+        application.getSharedPreferences("preference_key", Context.MODE_PRIVATE)
     private val userRepository = UserRepository()
     private val loginResult: MutableLiveData<Resource<LoginResponse>> = MutableLiveData()
     fun loginUser(username : String,password : String) {

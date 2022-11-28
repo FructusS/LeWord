@@ -15,8 +15,6 @@ class UserRepository  {
        return IUserApi.getUserApi()?.loginUser(loginRequest = loginRequest)
    }
     suspend fun registrationUser(registrationRequest: RegistrationRequest) : Response<RegistrationResponse>?{
-
-
        return IUserApi.getUserApi()?.registration(registrationRequest = registrationRequest)
     }
 

@@ -41,6 +41,8 @@ android {
 }
 
 dependencies {
+    //datastore
+    implementation "androidx.datastore:datastore-preferences-core:$rootProject.datastoreVersion"
     //lifecycle
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
@@ -48,7 +50,7 @@ dependencies {
 
 
     //coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
 
 
     //retrofit2
