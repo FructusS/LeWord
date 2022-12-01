@@ -9,8 +9,11 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 ext {
+    roomVersion = "2.4.3"
     datastoreVersion = '1.0.0'
-    coroutinesVersion = '1.3.2'
+    navigationVersion = '2.5.3'
+    lifecycleVersion = '2.5.1'
+    coroutinesVersion = '1.6.4'
     retrofit2Version = '2.9.0'
     okhttpVersion = '4.10.0'
     preferenceVersion = "1.2.0"
