@@ -1,8 +1,13 @@
 package com.example.lewords.model.word
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "words")
 data class Word(
-    val id: Int,
-    val transcription: String,
-    val wordoneng: String,
-    val wordonrus: String
+    @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "transcription") val transcription: String,
+    @ColumnInfo(name = "wordoneng") val wordoneng: String,
+    @ColumnInfo(name = "wordonrus") val wordonrus: String
 )
