@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/wordFragment"
+        android:icon="@drawable/ic_baseline_words_24"
+        android:title="@null" />
+    <item
+        android:id="@+id/dictionaryFragment"
+        android:icon="@drawable/ic_dictionary_24"
+        android:title="@null" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/account_circle_48px"
+        android:title="@null" />
+</menu>
