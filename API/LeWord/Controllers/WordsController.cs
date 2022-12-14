@@ -11,7 +11,7 @@ using LeWord.Entities;
 
 namespace LeWord.Controllers
 {
-    [Route("api/[controller][action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class WordsController : ControllerBase
     {
@@ -25,26 +25,35 @@ namespace LeWord.Controllers
         }
 
         // GET: api/Words
-        [HttpGet("{count}")]
-        public async Task<ActionResult<List<Word>>> GetWords(int count)
+        [HttpGet]
+        public async Task<ActionResult<List<Word>>> GetWords([FromQuery]int countWords)
         {
-          
-            return await _context.Words.Skip(Random.Shared.Next(10, _context.Words.Count())).Take(count).ToListAsync();
+            List<Word> words = new List<Word>();
+         
+            while (countWords != 0)
+            {
+                foreach (var item in _context.Words.Skip(Random.Shared.Next(1, _context.Words.Count())).Take(1).ToList())
+                {
+                    words.Add(item);
+                }
+                countWords--;
+            }
+            return words;
         }
 
         // GET: api/Words/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Word>> GetWord(int id)
-        {
-            var word = await _context.Words.FindAsync(id);
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<Word>> GetWord(int id)
+        //{
+        //    var word = await _context.Words.FindAsync(id);
 
-            if (word == null)
-            {
-                return NotFound();
-            }
+        //    if (word == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return word;
-        }
+        //    return word;
+        //}
 
         // PUT: api/Words/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
