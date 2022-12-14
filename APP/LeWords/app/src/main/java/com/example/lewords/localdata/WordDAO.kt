@@ -10,6 +10,8 @@ import com.example.lewords.model.word.Word
 interface WordDAO {
     @Insert
     fun addWord(word : Word)
-    @Query("Select * From words limit :limitWord")
-    fun getTodoList(limitWord : Int): LiveData<List<Word>>
+    @Query("Select * From words where learned = 0 limit :limitWord")
+    fun getNotLearnedWords(limitWord : Int): LiveData<List<Word>>
+    @Query("Select * From words where learned = 1 limit :limitWord")
+    fun getLearnedWords(limitWord : Int): LiveData<List<Word>>
 }
