@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="30dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
     android:gravity="center"
     tools:context=".ui.login.LoginActivity"
     android:orientation="vertical">
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_gravity="center|center_horizontal"
@@ -26,7 +26,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_height="wrap_content">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordLoginEditText"
@@ -48,13 +48,35 @@
         android:layout_height="wrap_content">
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/loginButton"
-        android:enabled="true"
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/loginButton"
+            android:enabled="true"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:text="Войти"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:background="@android:color/transparent"
+            android:id="@+id/NoAccountButton"
+            android:text="нет аккаунта?"
+            android:textSize="10dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBarLogin"
+        android:visibility="gone"
         android:layout_width="wrap_content"
-        android:text="Войти"
-        android:layout_height="wrap_content"></Button>
-    <androidx.core.widget.ContentLoadingProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></androidx.core.widget.ContentLoadingProgressBar>
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

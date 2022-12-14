@@ -4,9 +4,22 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/PC/AndroidStudioProjects/LeWords/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/account_circle-48px.xml" value="0.139" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/account_circle_48px.xml" value="0.196" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/bg_gradient.xml" value="0.1975" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.196" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/ic_baseline_words_24.xml" value="0.1975" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/left_swipe_background.xml" value="0.179" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/right_button_transition.xml" value="0.179" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/splash_background.xml" value="0.1965" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/activity_registration.xml" value="0.25" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/fragment_profile.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/fragment_word.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/word_recyclerview_item.xml" value="0.33" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/menu/top_menu_profile.xml" value="0.18697916666666667" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/xml/network_security_config.xml" value="0.11296296296296296" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/LeWords/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/LeWords/app/src/main/res/layout/activity_main.xml" value="0.14722222222222223" />

@@ -1,25 +1,20 @@
 package com.example.lewords.network
 
 import com.example.lewords.BuildConfig
-import com.example.lewords.model.UnsafeOkHttpClient
-import com.example.lewords.network.interfaces.IUserApi
-import okhttp3.Interceptor
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.security.cert.X509Certificate
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManager
-import javax.net.ssl.X509TrustManager
 
 
 object ApiService {
-    var mRetrofit: Retrofit? = null
-    var mHttpLoggingInterceptor = HttpLoggingInterceptor()
+    private val mGson: Gson = GsonBuilder().setLenient().create()
+    private var mRetrofit: Retrofit? = null
+    private var mHttpLoggingInterceptor = HttpLoggingInterceptor()
         .setLevel(HttpLoggingInterceptor.Level.BODY)
-    var mOkHttpClient = OkHttpClient
+    private var mOkHttpClient = OkHttpClient
         .Builder()
         .addInterceptor(mHttpLoggingInterceptor)
         .build()
@@ -30,7 +25,7 @@ object ApiService {
             mRetrofit = Retrofit.Builder()
                 .baseUrl(BuildConfig.API_URL)
                 .client(mOkHttpClient)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(mGson))
                 .build()
         }
         return mRetrofit

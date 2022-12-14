@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
     android:orientation="vertical"
 
     tools:context=".ui.registration.RegistrationActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_height="wrap_content">
 
@@ -29,8 +29,6 @@
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="6dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -41,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal"
-
+            android:inputType="textWebEmailAddress"
 
             android:backgroundTint="@android:color/transparent"
             android:hint="Почта">
@@ -50,8 +48,7 @@
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+
 
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -62,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal"
-
+            android:inputType="textPassword"
 
             android:backgroundTint="@android:color/transparent"
             android:hint="Пароль">
@@ -75,8 +72,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+
 
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -87,22 +83,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal"
-
+            android:inputType="textPassword"
 
             android:backgroundTint="@android:color/transparent"
             android:hint="Повторите пароль">
 
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
+
+
     <Button
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:enabled="true"
         android:layout_marginTop="10dp"
-        android:text="Зарегистрироваться"></Button>
+        android:text="Зарегистрироваться" />
 
-    <androidx.core.widget.ContentLoadingProgressBar
+    <Button
+        android:id="@+id/NoAccountButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></androidx.core.widget.ContentLoadingProgressBar>
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:text="есть аккаунт?"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBarRegistration"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

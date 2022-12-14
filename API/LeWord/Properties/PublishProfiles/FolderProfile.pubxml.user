@@ -5,6 +5,6 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\PC\Desktop\LEWORD\API\LeWord\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2022-11-26T12:31:54.4686173Z;</History>
+    <History>True|2022-12-02T09:43:23.0559918Z;True|2022-12-02T12:26:55.3379830+03:00;True|2022-11-26T15:31:54.4686173+03:00;</History>
   </PropertyGroup>
 </Project>
