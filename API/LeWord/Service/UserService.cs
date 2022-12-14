@@ -54,7 +54,7 @@ namespace LeWord.Service
 
             _context.Users.Add(user);
             _context.SaveChangesAsync();
-            return new RegistrationResponse { UserName = user.Username };
+            return new RegistrationResponse { UserName = user.Username, Email = user.Email };
         }
     }
 }

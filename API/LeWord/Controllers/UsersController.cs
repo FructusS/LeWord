@@ -127,7 +127,7 @@ namespace LeWord.Controllers
                 return BadRequest(new { errorText = "User is exist." });
             }
 
-            return Ok("registration is succesful");
+            return Ok(registrationresponse);
         }
 
         // DELETE: api/Users/5
