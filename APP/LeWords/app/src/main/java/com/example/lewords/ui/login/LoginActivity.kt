@@ -1,10 +1,16 @@
 package com.example.lewords.ui.login
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.lewords.databinding.ActivityLoginBinding
+import com.example.lewords.model.user.login.LoginResponse
+import com.example.lewords.ui.MainActivity
+import com.example.lewords.ui.registration.RegistrationActivity
+import com.example.lewords.utils.ResultResponse
+import com.example.lewords.utils.SessionManager
 
 
 class LoginActivity : AppCompatActivity() {
@@ -16,20 +22,61 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        loginViewModel = ViewModelProvider(this,)[LoginViewModel::class.java]
-
-        val registerButton = binding.loginButton
-        val passwordEditText = binding.passwordLoginEditText.text.toString()
-        val loginEditText = binding.usernameLoginEditText.text.toString()
-        registerButton.setOnClickListener{
-            loginViewModel.loginUser(loginEditText,passwordEditText)
-
+        loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        if (!SessionManager.getUserToken(this).isNullOrEmpty()){
+            navigateToMainActivity()
         }
-        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        var editor = sharedPreference.edit()
-        editor.putString("username","Anupam")
-        editor.putLong("l",100L)
-        editor.commit()
+        loginViewModel.loginResult.observe(this){
+            when(it){
+                is ResultResponse.Loading -> {
+                    binding.loginButton.visibility  =  View.GONE
+                    binding.progressBarLogin.visibility  = View.VISIBLE
+                }
+                is ResultResponse.Error ->{
+                    binding.loginButton.visibility  =  View.VISIBLE
+                    binding.progressBarLogin.visibility  = View.GONE
+                }
+                is ResultResponse.Success ->{
+                    processLogin(it.data)
+                    navigateToMainActivity()
+                }
+                else -> {
+                    binding.loginButton.visibility  =  View.VISIBLE
+                    binding.progressBarLogin.visibility  = View.GONE
+                }
+            }
+        }
 
+
+
+        binding.loginButton.setOnClickListener{
+            doLogin()
+        }
+       // binding.NoAccountButton.isVisible = SessionManager.getUserName(this) != null
+
+        binding.NoAccountButton.setOnClickListener{
+            val i = Intent(this,RegistrationActivity::class.java)
+            startActivity(i)
+            finish()
+        }
     }
+
+    private fun navigateToMainActivity() {
+        val i = Intent(this,MainActivity::class.java)
+        startActivity(i)
+        finish()
+    }
+
+    private fun processLogin(data: LoginResponse?) {
+        data?.let {
+            SessionManager.saveUserToken(this, it.token)
+        }
+    }
+
+    private fun doLogin(){
+        loginViewModel.loginUser(
+            binding.usernameLoginEditText.text.toString(),
+            binding.passwordLoginEditText.text.toString())
+    }
+
 }
