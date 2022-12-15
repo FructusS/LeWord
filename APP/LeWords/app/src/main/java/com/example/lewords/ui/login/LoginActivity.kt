@@ -23,9 +23,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
-        if (!SessionManager.getUserToken(this).isNullOrEmpty()){
-            navigateToMainActivity()
-        }
+        binding.usernameLoginEditText.setText(SessionManager.getUserName(applicationContext))
+        binding.passwordLoginEditText.setText(SessionManager.getPassword(applicationContext))
         loginViewModel.loginResult.observe(this){
             when(it){
                 is ResultResponse.Loading -> {
@@ -52,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
         binding.loginButton.setOnClickListener{
             doLogin()
         }
-       // binding.NoAccountButton.isVisible = SessionManager.getUserName(this) != null
+
 
         binding.NoAccountButton.setOnClickListener{
             val i = Intent(this,RegistrationActivity::class.java)
