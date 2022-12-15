@@ -9,12 +9,15 @@
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/bg_gradient.xml" value="0.1975" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.196" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/ic_baseline_words_24.xml" value="0.1975" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/left_background_button.xml" value="0.2165" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/left_swipe_background.xml" value="0.179" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/right_button_transition.xml" value="0.179" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/right_swipe_background.xml" value="0.2165" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/drawable/splash_background.xml" value="0.1965" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/activity_main.xml" value="0.45598194130925507" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/activity_registration.xml" value="0.25" />
+        <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/fragment_dictionary.xml" value="0.21041666666666667" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/fragment_profile.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/fragment_word.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/PC/Desktop/LEWORD/APP/LeWords/app/src/main/res/layout/word_recyclerview_item.xml" value="0.33" />

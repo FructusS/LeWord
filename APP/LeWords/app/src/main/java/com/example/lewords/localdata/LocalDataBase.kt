@@ -5,8 +5,10 @@ import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteOpenHelper
 import com.example.lewords.model.word.Word
 
-@Database(entities = [Word::class] ,version = 3)
+@Database(entities = [Word::class] ,version = 2)
 abstract class LocalDataBase : RoomDatabase() {
+
+    abstract fun wordDao(): WordDao
 
     companion object{
         @Volatile
