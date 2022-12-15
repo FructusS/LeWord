@@ -8,11 +8,11 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "words")
 data class Word(
-    @PrimaryKey(autoGenerate = true) val id: Int?,
+    @PrimaryKey(autoGenerate = true) var id: Int? = null,
     @ColumnInfo(name = "transcription") val transcription: String?,
     @ColumnInfo(name = "wordoneng") val wordoneng: String?,
     @ColumnInfo(name = "wordonrus") val wordonrus: String?,
-    @ColumnInfo(name = "learned") val learned: Boolean
+    @ColumnInfo(name = "learned") var learned: Boolean = false
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readValue(Int::class.java.classLoader) as? Int,
