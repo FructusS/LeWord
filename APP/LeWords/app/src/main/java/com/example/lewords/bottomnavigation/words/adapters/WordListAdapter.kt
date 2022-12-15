@@ -3,17 +3,28 @@ package com.example.lewords.bottomnavigation.words.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lewords.databinding.WordRecyclerviewItemBinding
 import com.example.lewords.model.word.Word
 
-class WordListAdapter : ListAdapter<Word,WordListAdapter.WordViewHolder>(WordViewHolder.WordComparator()){
+class WordListAdapter(_listener : IWordListener) : ListAdapter<Word,WordListAdapter.WordViewHolder>(WordViewHolder.WordComparator()){
+
+    private val listener : IWordListener = _listener
     class WordViewHolder(private val binding : WordRecyclerviewItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun  bind(word : Word){
-            binding.word.text = word.wordoneng
+            binding.wordOnRus.text = word.wordonrus
+            binding.wordOnEng.text = word.wordoneng
+            binding.transcription.text = word.transcription
+
+
+            binding.isVisibleTranslate.setOnClickListener{
+                binding.wordOnEng.isVisible = true;
+                binding.isVisibleTranslate.isVisible = false;
+            }
         }
 
         class WordComparator : DiffUtil.ItemCallback<Word>(){
@@ -43,4 +54,14 @@ class WordListAdapter : ListAdapter<Word,WordListAdapter.WordViewHolder>(WordVie
         holder.bind(word)
     }
 
+    interface IWordListener{
+        fun onItemSwipeRight(word: Word,position: Int)
+        fun onItemSwipeLeft(word: Word,position: Int)
+    }
+    fun onItemSwipeRight(position: Int){
+        listener.onItemSwipeRight(currentList[position],position)
+    }
+    fun onItemSwipeLeft(position: Int){
+        listener.onItemSwipeLeft(currentList[position],position)
+    }
 }
