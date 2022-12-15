@@ -8,15 +8,19 @@ object SessionManager {
     private const val USER_TOKEN = "USER_TOKEN"
     private const val USER_PASSWORD = "USER_PASSWORD"
     private const val USER_NAME = "USER_NAME"
+    private const val COUNT_WORDS = "COUNT_WORDS"
     fun saveUserToken(context: Context,token : String){
         saveString(context, USER_TOKEN,token)
     }
-    fun getUserToken(context: Context)
-     =   getString(context, USER_TOKEN)
+
+    fun saveCountWords(context: Context,value: Int) { saveString(context, COUNT_WORDS,value.toString())}
+    fun getCountWords(context: Context) = getString(context, COUNT_WORDS)?.toInt()
+    fun getUserToken(context: Context) =   getString(context, USER_TOKEN)
 
     fun saveUserName(context: Context,value : String){
         saveString(context, USER_NAME,value)
     }
+
     fun getUserName(context: Context)
             =   getString(context, USER_NAME)
 
